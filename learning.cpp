@@ -80,6 +80,40 @@ int whileLoops(){
     } //this will run for the first time cause at the start input is not 1 or 2
     return 0;
 }
+int switchStatments(){
+    /*
+    if you find yourself using too much if and else-if statements you would like to *switch* to switch statements,
+    switch statements are baisicly an easier and cleaner ways of doing else-if, let me show you an example of a switch
+    */
+    string day = "tuesday"; //setting a variable
+    switch (day == "tuesday"){//checking if its tuesday
+        case true: //if it is true we do the next thing:
+            cout << "yes it is tuesday :) \n"; //sending a message that it is true
+            break; //make sure to breake after the end of each case other then the last one, if you dont it will just keep sending the ones after the correct one
+        case false:
+            cout << "why you lying, no it isnt >:( \n";
+    }
+    //lets do another example
+    int x = 5;
+    switch(x + 1){ //if the answer of x(5) + 1 is equal to one of these
+        case 3:
+            cout << "answer is 3!! \n";
+            break;
+        case 9:
+            cout << "ITS 9!! \n";
+            break;
+        case 6:
+            cout << "actually the answer is 6 \n";
+            break;
+        case 10:
+            cout << "nah idk what yall thinkin bout but its actually 10 \n";
+            break;
+        default: //defult is if none of the options are correct then the code in the default will be activated
+            cout << "idk \n";
+    }
+
+    return 0;
+}
 
 int main(){ //creating a function 
     sendMsg();
@@ -88,6 +122,7 @@ int main(){ //creating a function
     forLoops();
     arrays();
     whileLoops();
+    switchStatments();
     //in the main function we dont need a return line
 }
 
