@@ -1,5 +1,6 @@
 #include <iostream> //include is to import libarys
 #include <string> //so we have string variables 
+#include <tuple>
 using namespace std; //so we dont have to do std:: after every line
 
 
@@ -135,6 +136,40 @@ int refrences(){
     //this can be usfull for accessing info from a variable in a diffrent function
     return 0;
 }
+int tuples(){//good luck pronouncing this without anyone getting mad
+    /*
+    if you look at the top you will see we need to import the libary for tuples
+    a touple is baisicly an array but instead of having to hold the same type the objects inside of it can be any type that you want
+    but it does a have a diffrent way to access elements 
+
+    you do still have to specify what types will be in the tuple tho as you will see how to create a tuple under here
+    */
+    tuple <int, string, char> nameTU(69,"heh nice", 'e'); //whatever is inside the "()" is the values of the tuple, so thats how you can create a tuple
+    //you can also create an empty tuple like so:
+    tuple <int, string> AgeName;
+    AgeName = make_tuple(23, "name"); //to set a value that isnt set yet of a tuple we use the make_tuple function
+    //lets now get values from these tuples to do so we do like this:
+    cout << get<0>(nameTU) << endl; //we are printing the first value in the touple, as you see a tuple starts with the index 0 as for most things 
+    //we can also change the value of them with that
+    get<0>(nameTU) = 420;
+    cout << get<0>(nameTU) << endl;
+    //tuples have methods that is named swap so lets give an example of that
+    tuple <int, int> nm1(1,2);
+    tuple <int, int> nm2(6,9);
+    nm1.swap(nm2);
+    //we can also break the tuple down to their own variables by using the tie function
+    int x, y; //declaring x and y as both integers
+    tie(x, y) = nm1;
+    return 0;
+    //we can combine 2 tuples by using the tuple_cat function which i will now give an example of:
+    tuple_cat(nm1, nm2);
+    //be aware that if you make this a variable you will have to specify the types still for example
+    tuple <int, int, int, int> np3 = tuple_cat(nm1, nm2);
+    //if you do "tuple np3 = tuple_cat(nm1,nm2)" it will not work and will give you an error
+    //but you can use the auto thing of c++, what auto does is baisicly guess what the variable type is acording to its contenents like so
+    auto nm3 = tuple_cat(nm1, nm2); //be curfull with this, it can cause errors and problems in the feauture
+    return 0;
+}
 
 int main(){ //creating a function 
     sendMsg();
@@ -145,6 +180,7 @@ int main(){ //creating a function
     whileLoops();
     switchStatments();
     refrences();
+    tuples();
     //in the main function we dont need a return line
 }
 
