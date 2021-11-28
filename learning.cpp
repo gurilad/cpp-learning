@@ -1,5 +1,6 @@
 #include <iostream> //include is to import libarys
 #include <string> //so we have string variables 
+#include <string.h>
 #include <tuple>
 #include <vector>
 #include <map>
@@ -10,11 +11,11 @@ using namespace std; //so we dont have to do std:: after every line
 //this will be tought with comments and comments are written started with // and then you can wright whatever with no error
 
 int sendMsg(){
-    cout << "Hello World!" << " smth"; //printing a string, we can add more to a string by doing another "<<" just like in the example
-    return 0;
+    cout << "Hello World!" << " smth" << endl; //printing a string, we can add more to a string by doing another "<<" just like in the example
+    return 0; //the endl is another way of doing \n so it just creates a new line
 }
 int variables() {
-    string sentece = "sex";//sentence or word
+    string sentece = "a sentence";//sentence or word
     int wholeNumber = 420; //whole number
     float unWholeNumber = 6.9; //number(isnt whole)
     double weirdFloat = 6.94206969420; //same as float but can store more number
@@ -241,7 +242,50 @@ int pointers(){
     }
     return 0;
 }
-int main(){ //creating a function 
+int vectors(){
+    //idk how to explain what a vector is, just google it, its baisicly like x y and z kinda thing, for more info just google
+    //make sure to import the vector libary ^
+
+    vector<int> v1 = {1, 2, 3}; //this is how we define a vector it takes the type of the vector
+    //you can access thru index or thru these diffrent ways to access
+    cout << v1[0] << endl;
+    cout << v1.back() << endl; //gets the last object so in this case it will be 3
+    cout << v1.front() << endl; //gets the fist object in the vector so here it will be 1 
+    cout << v1.size() << endl; //gets the size/length of the vector
+    cout << v1.capacity() << endl; //the capacity is the amount the vector can hold so in our case it is 3, but if we make it have for example 
+    //5 elements, the capacity is 5, but thats for when we set the vector the capacity is how much it can hold rather then how much it is currently holding
+    //to add elements we can do this:
+    v1.push_back(9); //adds the number 9
+    //which also increases our capacity, so if we have too much for the current capacity it will multiply by 2
+    //to remove elements we can pop back like this:
+    v1.pop_back();
+    //keep in mind that if u add to the vector and the capacity multiplies and then u pop back so remove some the capacity stays the same
+    //if we want to shrink to the amount we actually need we luckly have a shrink to fit method meaning that if your capacity is lets say 12
+    //but you are using only 3 of that you will want to shrink to save computer memory
+    v1.shrink_to_fit(); //so if we use the example of capacity is 12 and you only use 3, this will shrink the capacity down to 3
+    //to actually insert a new element we need a pointer to the element u want to insert. a simple way to demestraight it without all the trouble is with the .begin
+    v1.insert(v1.begin(), 5); //5 is the element that will be inserted
+    //easier way then doing the pointers and stuff if your vector isnt too big you can just do this
+    v1.insert(v1.begin() + 2, 7); //so this will add a 7 two numbers after the begining. but there is no actuall way to add to a vector thru index
+    //if you google it, google will mostly just recommend the same thing, atleast from what i found from a quick search.
+    //to erase an element we very simply just use the erase method like so:
+    v1.erase(v1.begin()); //this will erase the first element.
+    //we have 2 ways of printing out the elements and here they are
+    //first way:
+    for(int i = 0; i < v1.size(); i++){
+        cout << v1[i];
+    }
+    return 0;
+    //second way:
+    for(auto itr = v1.begin(); itr != v1.end(); itr++){
+        cout << *itr << endl;
+    }
+    //im sure there are more ways to print the vector 3s but yea
+    
+}
+
+int main(){
+    
     sendMsg();
     variables();
     userInput();
@@ -253,6 +297,8 @@ int main(){ //creating a function
     tuples();
     maps();
     pointers();
+    vectors();
+
     //in the main function we dont need a return line
 }
 
