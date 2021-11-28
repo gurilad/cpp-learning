@@ -39,10 +39,9 @@ int arrays(){
     for example:
     */
    string name[10] = {"in1","in2","in3","in4","in5", "in6", "in7", "in8", "in9", "in10"};
-   string eep[4] = {"a", "boooom", "booooooooooooooooooom", "boooooooooooooooom"};
    //to print everything we will have to do the following:
-   for(int i = 0; i < sizeof(eep)/sizeof(eep[0]); i++){ //we use the sizeof(name)/sizeof(name[0]) to get the size/length of the array
-       cout << ", " << eep[i];
+   for(int i = 0; i < sizeof(name)/sizeof(name[0]); i++){ //we use the sizeof(name)/sizeof(name[0]) to get the size/length of the array
+       cout << ", " << name[i];
    }
    return 0;
 }
