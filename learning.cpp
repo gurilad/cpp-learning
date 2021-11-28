@@ -1,6 +1,7 @@
 #include <iostream> //include is to import libarys
 #include <string> //so we have string variables 
 #include <tuple>
+#include <map>
 using namespace std; //so we dont have to do std:: after every line
 
 
@@ -170,6 +171,33 @@ int tuples(){//good luck pronouncing this without anyone getting mad
     auto nm3 = tuple_cat(nm1, nm2); //be curfull with this, it can cause errors and problems in the feauture
     return 0;
 }
+int maps(){
+    /*
+    a map allows us to access elements based on unique keys not with indexes.
+    not really gonna explain maps very far because it is very complicated to explain, just look at the tutorial thru the sources in the 
+    wiki tab of the github. i am gonna say you need to includ the map libary
+    */
+    map<char, int> mp = {
+        {'T', 7},
+        {'S', 8},
+        {'a', 4}
+    };
+    cout << mp['S'] << endl; //this is why its easier to find elements in maps then in an array. warning: it is key sensetive
+    //to add to a map:
+    mp['u'] = 6;
+    //another way to add is:
+    mp.insert(pair<char, int>('f', 5) );
+    //can also create a pair on its own by making it a var so like so:
+    pair<char, int> namePR('j',3);
+    mp.insert(namePR);
+    //to clear a map we can use the clear method
+    //mp.clear(); commented cause i dont wanna clear mine 
+    //or to check if a map is empty
+    mp.empty(); //1 if its empty 0 if its not
+    //to get size/length of a map
+    mp.size();
+    return 0;
+}
 
 int main(){ //creating a function 
     sendMsg();
@@ -181,6 +209,7 @@ int main(){ //creating a function
     switchStatments();
     refrences();
     tuples();
+    maps();
     //in the main function we dont need a return line
 }
 
