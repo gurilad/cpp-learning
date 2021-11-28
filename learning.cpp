@@ -4,7 +4,7 @@ using namespace std; //so we dont have to do std:: after every line
 
 
 //make sure to end every line with a semicolen (;)
-
+//this will be tought with comments and comments are written started with // and then you can wright whatever with no error
 
 int sendMsg(){
     cout << "Hello World!" << " smth"; //printing a string, we can add more to a string by doing another "<<" just like in the example
@@ -60,6 +60,26 @@ int arrays(){
    }
    return 0;
 }
+int whileLoops(){
+    /*
+    a while loop is baiscly a for loop but a little more simple, a while loop is a for loop but without being able to use i, so i cant do what
+    i did in the for loops where in the end i added a new line, a while loop take a question just like the 2nd input for a for loop and runs the 
+    code-block inside of it untill the question/boolean is true lets do the same example as we did with the for loop but with while loops 
+    */
+    int i = 0; //creating a var to keep track of how many loops we did
+    while(i <= 10){ //checking if i is smaller or equal to 10
+       cout << i << endl; //printing then ending the line
+       i++; //adding 1 to i.
+    }
+    //cangruts if you did this, you just make a for loop with a while loop, lets create something somewhat usfull:
+    //for the next example i will create an input that takes a number and if its 1 or 2 they can continue but if it is not we will loop around and ask them to enter again
+    int input = -1; //setting a variable equal to -1 when there is no user input the the loop to run
+    while (input != 1 && input != 2){ //checking if input is 1 or 2
+       cout << "Type a number 1 or 2: "; //telling the user to input 1 or 2
+        cin >> input; //getting the input
+    } //this will run for the first time cause at the start input is not 1 or 2
+    return 0;
+}
 
 int main(){ //creating a function 
     sendMsg();
@@ -67,6 +87,7 @@ int main(){ //creating a function
     userInput();
     forLoops();
     arrays();
+    whileLoops();
     //in the main function we dont need a return line
 }
 
