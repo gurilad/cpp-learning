@@ -30,6 +30,20 @@ int userInput(){
     cin.clear(); //clears error flags 
     return 0;
 }
+int forLoops(){
+    /*
+    to create a for loop we will create a variable with the value of 0 **inside the loop** then while it is <= or what ever u want to a number
+    then everytime that its still true we run the code and add one to the value we created at the start and run it,
+    might sound complicated but i will now give an example with sending a message 10 times: 
+    */
+   for(int i = 0; i <= 9; i++){  //int i = 0; sets i as an integer number with the number 0, then i <= 9 checks if i is still smaller or equal to 9 (cause i starts from zero so it gues 0 1 2...), the i++ just adds 1 to i so it doesnt go forever
+        cout << "message "; //this will send "message " while i is smaller or equal to 10, there will only be one space and no new line between every message
+        if(i == 9){ //checking if i is equal to 10 to create a new line at the end of the last message
+            cout << "\n"; //creating a new line
+        }
+   }
+   return 0;
+}
 int arrays(){
     /*
     to create an array we want to specify the type of the arrays objects so string int and so on then name with [] at the end
@@ -39,6 +53,7 @@ int arrays(){
     for example:
     */
    string name[10] = {"in1","in2","in3","in4","in5", "in6", "in7", "in8", "in9", "in10"};
+
    //to print everything we will have to do the following:
    for(int i = 0; i < sizeof(name)/sizeof(name[0]); i++){ //we use the sizeof(name)/sizeof(name[0]) to get the size/length of the array
        cout << ", " << name[i];
@@ -50,6 +65,7 @@ int main(){ //creating a function
     sendMsg();
     variables();
     userInput();
+    forLoops();
     arrays();
     //in the main function we dont need a return line
 }
