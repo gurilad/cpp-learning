@@ -1,6 +1,7 @@
 #include <iostream> //include is to import libarys
 #include <string> //so we have string variables 
 #include <tuple>
+#include <vector>
 #include <map>
 using namespace std; //so we dont have to do std:: after every line
 
@@ -198,7 +199,48 @@ int maps(){
     mp.size();
     return 0;
 }
+int pointers(){
+    /*
+    **IMPORTANT**
+    pointers are to save locations of variable.
+    every variable has its on location in our computers memory for example:
+    if we set a variable for example x we create a location in our computers memory
+    lets say at (random)ox07Jl that contains the value of value of x saved as x.
+    when we create an alise/refrence we are using a diffrent variable to access the same memory spot
+    meaning if we change x to a diffrent value y will also change to that value (the location stays the same), and so goes the other way
+    so then if we change the other variable leading to the same location it will change it for x as well.
+    what a pointer does is it stores the location of a variable, to create a pointer to x for example lets save the location of x as z.
+    int *z = &x; the value of that will have its own location but the value of that location is the location of x
+    lets start with some code examples
+    */
+    int x = 2;
+    int *y = &x;
+    cout << x << endl;
+    cout << y << endl;
+    //then to access the value of the location of y we do this
+    cout << *y << endl;
 
+    //pointers with arrays
+    int e[] = {1, 2, 3};
+    int *head = e; //arrays are already strored as their location so by doing this i get the location of the first element
+    //note: you can still use normal index with this like so:
+    // int *head = &e[1]; //this will set head to the location of the second value
+
+    //lets get this array with only the location of it
+    for(int i = 0; i < 3; i++){
+        head = e + i;
+        cout << head << endl;//prints location of all the arrays contained objects
+        
+
+    }
+    for(int i = 0; i < 3; i++){
+        head = e + i;
+        cout << *head << endl;//prints value of all arrays contained objects
+        
+
+    }
+    return 0;
+}
 int main(){ //creating a function 
     sendMsg();
     variables();
@@ -210,6 +252,7 @@ int main(){ //creating a function
     refrences();
     tuples();
     maps();
+    pointers();
     //in the main function we dont need a return line
 }
 
