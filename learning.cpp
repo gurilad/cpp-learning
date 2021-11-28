@@ -114,6 +114,27 @@ int switchStatments(){
 
     return 0;
 }
+int refrences(){
+    /*
+    refrences also knows as alises are used to refrence variable via a diffrent name then their actuall set name
+    to create a refrence/alise we do the next thing
+    */
+    int a = 0; //the normal named variable
+    int &b = a; //the "&" tells the program that its a diffrent name to it rather then creating a new variable that has the value of variable a
+    //this means we can use b to modify var a
+    //this is just a simple thing that is nice to know i guess
+    cout << a << endl;
+    cout << b << endl;
+    a = 5; //changin only a
+    cout << a << endl;
+    cout << b << endl;
+    b = 10; //changin only b
+    cout << a << endl;
+    cout << b << endl;
+    //as you will see they print out the same values
+    //this can be usfull for accessing info from a variable in a diffrent function
+    return 0;
+}
 
 int main(){ //creating a function 
     sendMsg();
@@ -123,6 +144,7 @@ int main(){ //creating a function
     arrays();
     whileLoops();
     switchStatments();
+    refrences();
     //in the main function we dont need a return line
 }
 
