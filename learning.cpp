@@ -3,6 +3,7 @@
 #include <string.h>
 #include <tuple>
 #include <vector>
+#include <set>
 #include <map>
 using namespace std; //so we dont have to do std:: after every line
 
@@ -273,17 +274,89 @@ int vectors(){
     //we have 2 ways of printing out the elements and here they are
     //first way:
     for(int i = 0; i < v1.size(); i++){
-        cout << v1[i];
+        cout << v1[i] << endl;
     }
-    return 0;
+    
     //second way:
     for(auto itr = v1.begin(); itr != v1.end(); itr++){
         cout << *itr << endl;
     }
     //im sure there are more ways to print the vector 3s but yea
-    
+    return 0;
 }
+int sets(){
+    //sets are unordered collections of unique elements. make sure to include set. lets create a set if characters
+    set<char> s1 = {'E', 'S', 'E', 'S'}; 
+    //you will see when you print this out it will only print E and S, this is because sets only care if something exsits or not
+    //so lets give it an example
+    for (auto itr = s1.begin(); itr != s1.end(); itr++){ 
+        cout << *itr << endl;
+    }
+    cout << "\n";
+    //also sets dont care about order
+    //so lets give an example of that
+    set<char> s2 = {'H', 'E', 'L', 'L', 'O'};
+    for (auto itr = s2.begin(); itr != s2.end(); itr++){ 
+        cout << *itr << endl;
+    }
+    //lets go over so methods we can do with sets
+    //ill be using s2 for most of it for an example
+    s2.insert('A'); //adding an element, ofc where doesnt matter where it is.
+    s2.erase('O'); //erases the element 'O'
+    if(s2.find('E') == s2.end()){ //checking if e is in the set
+        cout << "E was not found" << endl; //if it wasnt found
+    } else {
+        cout << "E was found!!" << endl; //if it was found
+    }
 
+    return 0;
+}
+/*
+functions: (cant really create a function inside a function so im doing this here)
+a function is what we have been seeing all this time wit hthe int (name)(){}
+well there is more to functions then that.
+functions are blocks of code that will only be activated once you run them
+as you can see in the main function
+what we havnt done/seen yet here is functions with arguments, which is one of the things we will be doing right now.
+lets make a function that takes two numbers and returns the value of them combined so for example
+add(1, 1); and it will return 2
+*/
+int add(int x, int y){ //this is how we create a function that takes in arguments/requirments 
+    return x + y; //the return function is what you get in return so if i were to just do add(1, 1); i will get nothing but if i do cout << add(1, 1); it will print out 2
+} //lets go test this at the main function
+
+//lets try void functions
+void test(){ //void functions are baisicly the same as normal function but with no datatype meaning there is no return;
+    for(int i = 0; i < 10; i++){
+        cout << i << endl;
+    }
+}
+//from now on im going to call arguments args deal with it
+//that does not mean that a void function can not take args lets give that an example
+void send(int x, string txt){
+    for(int i = 0; i < x; i++){
+        cout << txt << endl;
+    }
+}
+//if we want a function that takes in a value but its optional we can set it a defult value like this
+int mth(int x, int y, string z = "*"){ //keep in mind the optinal arguments always have to be at the end
+    //im going to do a simple calculator here
+    if(z == "*"){
+        return x * y;
+    } else if (z == "+")
+    {
+        return x + y;
+    } else if (z == "-")
+    {
+        return x - y;
+    } else if (z == "/" || z == ":")
+    {
+        return x / y;
+    }
+    return 0;
+//very simple
+}
+//good thing about functions is that you can use them anywhere as many times as u want other then outside of everything ofc
 int main(){
     
     sendMsg();
@@ -298,7 +371,14 @@ int main(){
     maps();
     pointers();
     vectors();
+    sets();
 
+    //here is where we will be trying our functions:
+    add(1, 1); //does nothing
+    cout << add(1, 1) << endl; //sends 2 and creates a new line
+    test(); //will send every number from 0 to 9
+    send(5, "hello!"); //sends hello 5 times
+    send(1, to_string(mth(5, 5, "+"))); //we used to_string function to convert int to string because the send function we made takes strings
     //in the main function we dont need a return line
 }
 
